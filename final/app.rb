@@ -88,7 +88,7 @@ end
 
 get '/users/:id' do |id|
   @user = User.get(id)
-  @blabs = Blab.all(user_id: id)
+  @blabs = @user.blabs
   erb :'users/show'
 end
 
