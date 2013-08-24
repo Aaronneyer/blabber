@@ -1,0 +1,7 @@
+<ul>
+  <% @blabs.each do |blab| %>
+    <li><b><%= blab.user.login %>:</b> <%= blab.body %></li>
+  <% end %>
+</ul>
+
+<p><a href='/'>Home</a></p>

@@ -68,4 +68,29 @@ get '/logout' do
   redirect '/'
 end
 
+get '/blabs' do
+  @blabs = Blab.all
+  erb :'blabs/index'
+end
+
+get '/blabs/new' do
+  erb :'blabs/new'
+end
+
+post '/blabs' do
+  Blab.create(body: params['body'], user_id: current_user.id)
+  redirect '/blabs'
+end
+
+get '/users' do
+  @users = User.all
+  erb :'users/index'
+end
+
+get '/users/:id' do |id|
+  @user = User.get(id)
+  @blabs = Blab.all(user_id: id)
+  erb :'users/show'
+end
+
 DataMapper.auto_upgrade!
