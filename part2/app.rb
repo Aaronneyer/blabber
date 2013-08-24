@@ -10,7 +10,7 @@ class User
 
   property :id, Serial
   property :username, String
-  property :encrypted_password, String
+  property :encrypted_password, String, length: 255
   has n, :blabs
 end
 
@@ -18,7 +18,7 @@ class Blab
   include DataMapper::Resource
 
   property :id, Serial
-  property :body, String
+  property :body, String, length: 255
   belongs_to :user
 end
 
