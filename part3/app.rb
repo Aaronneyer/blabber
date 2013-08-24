@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'haml'
 require 'data_mapper'
 require 'dm-migrations'
 require 'bcrypt'
