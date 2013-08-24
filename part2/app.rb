@@ -10,7 +10,7 @@ class User
 
   property :id, Serial
   property :username, String
-  property :encrypted_password, String, length: 255
+  property :password_hash, String, length: 255
   has n, :blabs
 end
 
