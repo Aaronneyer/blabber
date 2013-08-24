@@ -1,0 +1,9 @@
+<p>Welcome to Blabber.</p>
+
+<% if current_user %>
+  <p>You are currently logged in as <%= current_user.login %> |
+  <a href='/logout'>Logout</a></p>
+<% else %>
+  <p>You are not currently signed in.</p>
+  <p><a href='/login'>Login</a> | <a href='/signup'>Signup</a></p>
+<% end %>

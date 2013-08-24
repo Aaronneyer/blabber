@@ -10,7 +10,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
+  property :login, String
   property :encrypted_password, String
   has n, :blabs
 end
@@ -24,7 +24,7 @@ class Blab
 end
 
 get '/' do
-  haml 'home'
+  erb :index
 end
 
 DataMapper.auto_upgrade!
