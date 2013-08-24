@@ -1,8 +1,8 @@
-<b><%= @user.login %>'s tweets</b>
+<b><%= @user.username %>'s tweets</b>
 
 <ul>
   <% @blabs.each do |blab| %>
-    <li><b><%= blab.user.login %>:</b> <%= blab.body %></li>
+    <li><b><%= blab.user.username %>:</b> <%= blab.body %></li>
   <% end %>
 </ul>
 

@@ -12,7 +12,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :login, String
+  property :username, String
   property :password_hash, String, length: 255
   has n, :blabs
 end
@@ -39,10 +39,10 @@ get '/signup' do
 end
 
 post '/signup' do
-  if User.first(login: params['login'])
+  if User.first(username: params['username'])
     redirect '/signup'
   end
-  user = User.create(login: params['login'],
+  user = User.create(username: params['username'],
                      password_hash: BCrypt::Password.create(params['password']))
   session['user_id'] = user.id
   redirect '/'
@@ -53,7 +53,7 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.first(login: params['login'])
+  user = User.first(username: params['username'])
   if user && (BCrypt::Password.new(user.password_hash) == params['password'])
     session['user_id'] = user.id
     redirect '/'

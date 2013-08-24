@@ -9,7 +9,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :login, String
+  property :username, String
   property :encrypted_password, String
   has n, :blabs
 end

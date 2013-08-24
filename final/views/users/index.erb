@@ -1,6 +1,6 @@
 <ul>
   <% @users.each do |user| %>
-    <li><a href='/users/<%= user.id %>'>@<%= user.login %></a></li>
+    <li><a href='/users/<%= user.id %>'>@<%= user.username %></a></li>
   <% end %>
 </ul>
 
